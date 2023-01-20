@@ -18,6 +18,14 @@ const UserSchema = new mongoose.Schema({
     require: true,
     minlength: 6
   },
+  favPokemon: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      name: String,
+      imgUrl: String,
+      ref: 'Poke'
+    }
+  ],
   address: String,
   contact: String,
   resetPasswordToken: String,

@@ -84,6 +84,34 @@ exports.viewAll = async (req, res) => {
   console.log('you have reached to the backend succeesfully')
 }
 
+exports.viewAccount = async (req, res) => {
+  // define req.params.id
+  let userId = req.params.id
+
+  // validate
+  if (!userId) {
+    console.log('there is no user info')
+    return res.json({
+      success: false,
+      message: 'invalid request, user info missing'
+    })
+  }
+
+  // request to find user in DB
+  try {
+    const user = await User.findById(userId)
+    
+    // send received data to frontend
+    res.json({
+      success: true,
+      user
+    })
+
+  } catch (e) {
+    console.log(e)
+  }
+}
+
 const sendToken = (user, statusCode, res) => {
   const token = user.getSignedToken();
   res.status(statusCode).json({
