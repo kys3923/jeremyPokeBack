@@ -26,6 +26,12 @@ const UserSchema = new mongoose.Schema({
       ref: 'Poke'
     }
   ],
+  favMovies: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Movies'
+    }
+  ],
   address: String,
   contact: String,
   resetPasswordToken: String,

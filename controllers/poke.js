@@ -1,7 +1,6 @@
 const axios = require('axios');
 const User = require('../models/User');
 const Poke = require('../models/Poke');
-const { request } = require('express');
 
 exports.search = async (req, res) => {
   console.log(req.params.id)
