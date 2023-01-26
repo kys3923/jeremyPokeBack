@@ -40,7 +40,6 @@ exports.search = async (req, res) => {
 }
 
 exports.addToFav = async (req, res) => {
-  console.log(req.params.id, req.body);
   let movieId = req.params.id;
 
   const { title, actors, director, writer, genre, released, author } = req.body;
